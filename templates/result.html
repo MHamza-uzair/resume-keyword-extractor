@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume Extraction Results</title>
+    <link rel="stylesheet" href="result.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Resume Extraction Results</h1>
+
+      {% if extracted_info %}
+      <div class="results-grid">
+        <div class="result-item">
+          <h3>📋 Name</h3>
+          <p>
+            {{ extracted_info.name if extracted_info.name else '<span
+              class="not-found"
+              >Not found</span
+            >' | safe }}
+          </p>
+        </div>
+
+        <div class="result-item">
+          <h3>📧 Email</h3>
+          <p>
+            {{ extracted_info.email if extracted_info.email else '<span
+              class="not-found"
+              >Not found</span
+            >' | safe }}
+          </p>
+        </div>
+
+        <div class="result-item">
+          <h3>📱 Phone</h3>
+          <p>
+            {{ extracted_info.phone if extracted_info.phone else '<span
+              class="not-found"
+              >Not found</span
+            >' | safe }}
+          </p>
+        </div>
+
+        <div class="result-item">
+          <h3>🔗 LinkedIn</h3>
+          <p>
+            {% if extracted_info.linkedin %}
+            <a href="{{ extracted_info.linkedin }}" target="_blank"
+              >{{ extracted_info.linkedin }}</a
+            >
+            {% else %}
+            <span class="not-found">Not found</span>
+            {% endif %}
+          </p>
+        </div>
+
+        <div class="result-item">
+          <h3>🐙 GitHub</h3>
+          <p>
+            {% if extracted_info.github %}
+            <a href="{{ extracted_info.github }}" target="_blank"
+              >{{ extracted_info.github }}</a
+            >
+            {% else %}
+            <span class="not-found">Not found</span>
+            {% endif %}
+          </p>
+        </div>
+
+        <div class="result-item">
+          <h3>🛠️ Skills</h3>
+          {% if extracted_info.skills %}
+          <ul>
+            {% for skill in extracted_info.skills %}
+            <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="not-found">No skills found</p>
+          {% endif %}
+        </div>
+
+        <div class="result-item single-column">
+          <h3>🎓 Education</h3>
+          {% if extracted_info.education %}
+          <ul>
+            {% for edu in extracted_info.education %}
+            <li>{{ edu }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="not-found">No education information found</p>
+          {% endif %}
+        </div>
+
+        <div class="result-item single-column">
+          <h3>💼 Experience</h3>
+          {% if extracted_info.experience %}
+          <ul>
+            {% for exp in extracted_info.experience %}
+            <li>{{ exp }}</li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <p class="not-found">No experience information found</p>
+          {% endif %}
+        </div>
+      </div>
+      {% endif %} {% if text and not extracted_info %}
+      <div class="raw-text">
+        <h3>⚠️ Raw Text (No Information Extracted)</h3>
+        <pre>{{ text }}</pre>
+      </div>
+      {% endif %}
+
+      <a href="/" class="back-btn">← Extract Another Resume</a>
+    </div>
+  </body>
+</html>

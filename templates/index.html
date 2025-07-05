@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resume Information Extractor</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Resume Information Extractor</h1>
+      <p class="subtitle">
+        Upload your resume or paste text to extract: Name, Email, Phone,
+        Experience, LinkedIn, GitHub, and Education
+      </p>
+
+      <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file">Upload Resume (.txt or .pdf):</label>
+          <input type="file" id="file" name="file" accept=".txt,.pdf" />
+        </div>
+
+        <div class="or-divider">— OR —</div>
+
+        <div class="form-group">
+          <label for="pasted_text">Paste resume text here:</label>
+          <textarea
+            id="pasted_text"
+            name="pasted_text"
+            rows="15"
+            cols="50"
+            placeholder="Paste your resume text here..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Extract Information</button>
+      </form>
+    </div>
+  </body>
+</html>
