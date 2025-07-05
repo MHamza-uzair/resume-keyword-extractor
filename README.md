@@ -1,6 +1,6 @@
 Resume Information Extractor
 A web-based application built with FastAPI that extracts key information from resumes in PDF or text format using Natural Language Processing (NLP) and regex patterns.
-🚀 Features
+FEATURES
 
 Multi-format Support: Upload PDF files or paste text directly
 Comprehensive Extraction: Extracts the following information:
@@ -18,7 +18,7 @@ Comprehensive Extraction: Extracts the following information:
 Clean Web Interface: User-friendly design with responsive layout
 Real-time Processing: Instant extraction and display of results
 
-🛠️ Technologies Used
+TECHNOLOGIES USED
 
 Backend: FastAPI (Python)
 NLP: spaCy for Named Entity Recognition
@@ -26,30 +26,30 @@ PDF Processing: pdfplumber for PDF text extraction
 Frontend: HTML, CSS, Jinja2 Templates
 Text Processing: Regular expressions (regex) for pattern matching
 
-📦 Installation
+INSTALLATIONS
 Prerequisites
 
 Python 3.8 or higher
 pip package manager
 
-Setup Instructions
+SETUP INSTRUCTIONS
 
 Clone the repository
 
-bashgit clone https://github.com/yourusername/resume-extractor.git
+git clone https://github.com/yourusername/resume-extractor.git
 cd resume-extractor
 
 Install required packages
 
-bashpip install fastapi uvicorn pdfplumber spacy python-multipart jinja2
+pip install fastapi uvicorn pdfplumber spacy python-multipart jinja2
 
 Download spaCy language model
 
-bashpython -m spacy download en_core_web_sm
+python -m spacy download en_core_web_sm
 
 Run the application
 
-bashuvicorn app:app --reload
+uvicorn app:app --reload
 
 Access the application
 
